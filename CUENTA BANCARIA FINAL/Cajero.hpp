@@ -3,6 +3,9 @@
 using namespace std;
 
 #ifndef CAJERO_HPP
+//Proyecto de Andres Acevedo Caracheo
+//A01706897
+//
 #define CAJERO_HPP
 
 
@@ -11,11 +14,15 @@ using namespace std;
 
 class Cajero {
 public:
+    //Metodos
     
+    //recibe una objeto tipo cuenta y un double. auementa su saldo con setter de cuenta
     void depositar(Cuenta &c, double d){
         c.set_saldo(d);
     }
     
+    //recibe un objeto tipo cuenta y un double. resta a su saldo con setter de cuenta
+    //y verifica que tengas el dinero nesecario.
     void sacar_dinero(Cuenta &c, double d){
         if (c.get_saldo()>(d*1.1)){
             if (c.check_des() == false)

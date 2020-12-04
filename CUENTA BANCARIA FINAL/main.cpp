@@ -1,3 +1,10 @@
+//Proyecto de Andres Acevedo Caracheo
+//A01706897
+//
+//Mi proyecto es de una aplicacion sencilla de una cuenta bancaria
+//te permite crear una cuenta y hacer cosas comunes como depositar,
+//sacar dinero, ver tu informacion, etc.
+
 #include <iostream>
 #include <string>
 
@@ -38,18 +45,17 @@ int main() {
     Cajero cajero; //Creamos los objetos que estaremos utilizando
     Cuenta cuenta;
     
-    bool cont1 = true; //Esta variable esta hecha para que el programa continue y que los
-                       //objetos no se esten redefiniendo.
+    bool cont1 = true; //Esta variable esta hecha para que el programa continue
     do{
-    menu_cuenta();
+    menu_cuenta(); //Impresion del menu
     int opcion;
     int id;
     double dinero;
     
     
-    cin >> opcion;
+    cin >> opcion; //Capturamos la opcion que escogio el usuario
         
-    if (opcion == 1){
+    if (opcion == 1){ //Opcion 1 "Log in"
         cout<<"\n"<<endl;
         
         cout<<"Introduce tu ID de cuenta"<<endl;
@@ -66,14 +72,14 @@ int main() {
         }
         else{
             bool cont2 = true;                  //Ya que se valoro que la cuenta si existe...
-            do {                                //Le damos al usuario mas opciones
-            cout<<"\n"<<endl;                   //Y usamos otro ciclo while para mantener la
-            menu_cliente();                     //cuenta
+            do {                                //Ciclo while para mantenernos en esta cuenta
+            cout<<"\n"<<endl;
+            menu_cliente();                     //Menu 2 con opciones de cuenta
             
             cin >> opcion;
             
-            if (opcion == 1){       // Opcion 1 es depositar que usa la funcion del cajero para
-                cout<<"\n"<<endl;   //cambiar el saldo de la cuenta
+            if (opcion == 1){       // Opcion 1 es depositar. Que usa la funcion del objeto
+                cout<<"\n"<<endl;   //cajero para cambiar el saldo de la cuenta
                 cout<<"Cuanto dinero vas a depositar"<<endl;
                 cin >> dinero;
                 cajero.depositar(cuenta, dinero);
@@ -95,12 +101,12 @@ int main() {
                 cout<<"Tu saldo es: "<<cuenta.get_saldo()<<endl;
                 cout<<"\n"<<endl;
             }
-            else if (opcion == 3){ //Opcion 3 es solo para ver el saldo de la cuenta
+            else if (opcion == 3){ //Opcion 3 utiliza los getters de la cuenta para obtener su saldo
                 cout<<"\n"<<endl;
                 cout<<"Tu saldo es: "<<cuenta.get_saldo()<<endl;
                 cout<<"\n"<<endl;
             }
-            else if (opcion == 4){ //Opcion 4 es para ver todos los datos de la cuenta
+            else if (opcion == 4){ //Opcion 4 utiliza getters de cuenta para obtener todos sus atributos
                 cout<<"ID: "<<cuenta.get_ID()<<endl;
                 cout<<"Nombre: "<<cuenta.get_name()<<endl;
                 cout<<"Localidad: "<<cuenta.get_loca()<<endl;
@@ -143,6 +149,7 @@ int main() {
         cin >> l;
         cout<<"\n"<<endl;
         
+        //Regresa al usuario su ID de acceso
         if (type == 1){
             banco.agrega_cuenta_s(n, l);
             cout<<"Tu ID de acceso es: "<<banco.get_ID_cont()<<endl;
@@ -206,6 +213,3 @@ int main() {
 //     Localidad: lugar
 //     Saldo: 1000
 //     Cuenta: Platino
-
-
-

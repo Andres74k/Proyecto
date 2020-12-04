@@ -1,13 +1,21 @@
+//Proyecto de Andres Acevedo Caracheo
+//A01706897
+//
+//Clase cuenta es donde se van a guardar todos los datos del usuario.
+//tiene atributos como: nombre del usuario, saldo, ID, localidad del usuario, y si tiene descuento o no.
+
 #include <string>
 #include <iostream>
 #ifndef CUENTA_HPP
 #define CUENTA_HPP
+//
 
 class Cuenta {
 public:
-    Cuenta ();
+    Cuenta (); //Constructores
     Cuenta(string, string, int, double, bool);
     
+    //Metodos
     string get_name();
     string get_loca();
     int get_ID();
@@ -19,12 +27,13 @@ public:
     void set_saldo(double);
 
 private:
+    //Declaro mis variables
     string nombre_c, localidad;
     int ID, saldo;
     bool descuento;
 };
     
-//Constructor
+//Constructor por default
 Cuenta::Cuenta(){
     ID = 0;
     saldo = 0;
@@ -33,6 +42,7 @@ Cuenta::Cuenta(){
     descuento = false;
 }
 
+//Constructos con parametros
 Cuenta:: Cuenta(string n, string l, int num, double s, bool des){
     nombre_c = n;
     localidad = l;
@@ -77,3 +87,4 @@ void Cuenta:: set_saldo(double s){
 }
 
 #endif
+
